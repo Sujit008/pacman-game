@@ -1,0 +1,19 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-mongo-db
+  namespace: pacman
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  selector:
+    matchLabels:
+      type: pv-mongo-db
+    matchExpressions:
+         - key: type
+           operator: In
+           values:
+           - pv-mongo-db 

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    type: pv-mongo-db
+  name: pv-mongo-db
+  namespace: pacman
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 2Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: pvc-mongo-db
+    namespace: pacman
+  hostPath:
+    path: /mnt/mongo-pacman
+    type: DirectoryOrCreate
+  persistentVolumeReclaimPolicy: Recycle
+  volumeMode: Filesystem

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman
+  labels:
+    name: pacman
+  namespace: pacman
+spec:
+  type: NodePort
+  externalIPs:
+   - 103.142.174.171  
+  ports:
+    - port: 8081
+      targetPort: 8080
+      name: http-server
+      protocol: TCP
+  selector:
+    app: pacman

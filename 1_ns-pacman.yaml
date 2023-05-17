@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    istio-injection: enabled
+    kubernetes.io/metadata.name: pacman
+  name: pacman
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active
